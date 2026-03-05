@@ -85,7 +85,6 @@ def update_rating():
         title = input("What is the movie title? ").strip()
         rating = int(input("What is the rating (integer): "))
 
-        table = get_table()
 
         # Check if movie exists first
         response = table.scan(
@@ -110,7 +109,28 @@ def delete_movie():
     Prompt user for a Movie Title.
     Delete that item from the database.
     """
-    print("deleting movie")
+    try:
+        title = input("Enter the movie title to delete: ").strip()
+        if not title:
+            print("Title cannot be empty.")
+            return
+
+
+        # Check if movie exists first, since DynamoDB won't warn us
+        response = table.scan(
+            FilterExpression=Attr("Title").eq(title)
+        )
+        if not response.get("Items"):
+            print(f"\nMovie '{title}' not found in the table.")
+            return
+
+        table.delete_item(
+            Key={"Title": title}
+        )
+        print(f"\nMovie '{title}' successfully deleted.\n")
+
+    except:
+        print("error in deleting movie")
 
 def query_movie():
     """
