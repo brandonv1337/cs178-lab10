@@ -1,7 +1,7 @@
-# name: YOUR NAME HERE
+# name: Brandon Valadez
 # date:
 # description: Implementation of CRUD operations with DynamoDB — CS178 Lab 10
-# proposed score: 0 (out of 5) -- if I don't change this, I agree to get 0 points.
+# proposed score: 0 (out of 5) -- 5
 
 import boto3
 from boto3.dynamodb.conditions import Key, Attr

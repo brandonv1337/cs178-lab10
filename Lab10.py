@@ -1,7 +1,7 @@
-# name: YOUR NAME HERE
-# date:
-# description: Full CRUD interface for Songs DynamoDB table — CS178 Lab 10
-# proposed score: 0 (out of 5) -- if I don't change this, I agree to get 0 points.
+# name: Brandon Valadez
+# date: March 5
+# description: Implementation of CRUD operations with DynamoDB — CS178 Lab 10
+# proposed score: 0 (out of 5) -- 4.999999... I believe my interface hits all of the critical points and it clever enough to use for songs :D
 
 import boto3
 from boto3.dynamodb.conditions import Attr
